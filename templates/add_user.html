@@ -1,46 +1,46 @@
 {% extends "base.html" %} {% block content %}
+<div class="container mt-5 mb-5">
+    <form method="post" class="form-horizontal">
+        <fieldset>
 
-<form method="post" class="form-horizontal">
-    <fieldset>
-
-        <!-- Form Name -->
-        <legend>ADD ITEM</legend>
-        <!-- Text input-->
-        <div class="form-group">
-            <label class="col-md-4 control-label" for="username">Username</label>
-            <div class="col-md-4">
-                <input id="username" name="username" placeholder="Username" class="form-control input-md" required="" type="text">
-            </div>
-        </div>
-
-
-
-
-        <!-- Select Basic -->
-        <div class="form-group">
-            <label class="col-md-4 control-label" for="admin">Is admin?</label>
-            <div class="col-md-4">
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="admin_yes" name="admin_yes" value="true">
-                    <label class="form-check-label" for="inlineCheckbox1">Yes</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="admin_no" name="admin_no" value="false">
-                    <label class="form-check-label" for="inlineCheckbox2">No</label>
+            <!-- Form Name -->
+            <legend>ADD USER</legend>
+            <!-- Text input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="username">Username</label>
+                <div class="col-md-4">
+                    <input id="username" name="username" placeholder="Username" class="form-control input-md" required="" type="text">
                 </div>
             </div>
-        </div>
 
 
-        <!-- Button -->
-        <div class="form-group">
-            <label class="col-md-4 control-label" for="singlebutton"></label>
-            <div class="col-md-4">
-                <button type="submit" id="singlebutton" name="singlebutton" class="btn btn-primary">Submit</button>
+
+
+            <!-- Select Basic -->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="admin">Is admin?</label>
+                <div class="col-md-4">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="admin_yes" name="admin_yes" value="true">
+                        <label class="form-check-label" for="inlineCheckbox1">Yes</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="admin_no" name="admin_no" value="false">
+                        <label class="form-check-label" for="inlineCheckbox2">No</label>
+                    </div>
+                </div>
             </div>
-        </div>
 
-    </fieldset>
-</form>
 
+            <!-- Button -->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="singlebutton"></label>
+                <div class="col-md-4">
+                    <button type="submit" id="singlebutton" name="singlebutton" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+
+        </fieldset>
+    </form>
+</div>
 {% endblock %}
