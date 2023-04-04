@@ -1,0 +1,68 @@
+{% extends "base.html" %} {% block content %}
+
+<form method="post" class="form-horizontal">
+    <fieldset>
+
+        <!-- Form Name -->
+        <legend>ADD ITEM</legend>
+        <!-- Text input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="item_name">ITEM NAME</label>
+            <div class="col-md-4">
+                <input id="item_name" name="item_name" placeholder="NAME" class="form-control input-md" required="" type="text">
+
+            </div>
+        </div>
+
+        <!-- Text input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="item_desc">ITEM DESCRIPTION</label>
+            <div class="col-md-4">
+                <input id="item_desc" name="item_desc" placeholder="DESCRIPTION" class="form-control input-md" required="" type="text">
+            </div>
+        </div>
+
+
+
+        <!-- Select Basic -->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="item_category">ITEM CATEGORY</label>
+            <div class="col-md-4">
+                <select id="item_category" name="item_category" class="form-control">
+        <option value="Monitor">Monitor</option>
+        <option value="Computer Components">Computer Components</option>
+        <option value="Clothing">Clothing</option>
+        <option value="Snacks">Snacks</option>
+    </select>
+            </div>
+        </div>
+
+        <!-- Text input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="item_price">ITEM PRICE</label>
+            <div class="col-md-4">
+                <input id="item_price" name="item_price" placeholder="PRICE" class="form-control input-md" required="" type="text">
+            </div>
+        </div>
+
+
+        <!-- File Button -->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="filebutton">main_image</label>
+            <div class="col-md-4">
+                <input id="filebutton" name="filebutton" class="input-file" type="file">
+            </div>
+        </div>
+
+        <!-- Button -->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="singlebutton"></label>
+            <div class="col-md-4">
+                <button type="submit" id="singlebutton" name="singlebutton" class="btn btn-primary">Submit</button>
+            </div>
+        </div>
+
+    </fieldset>
+</form>
+
+{% endblock %}
