@@ -88,17 +88,10 @@ def item(item_id):
                 "rater":username,
                 "rate":star,
             }
-
-            # if item does not have a avg_rating field, add it
-            if 'avg_rating' not in item:
-                db.items.update_one({"_id":ObjectId(item_id)},{'$set':{"avg_rating":0.0}})
-                item['avg_rating'] = 0.0
-
+            
+            # update item's ratings
             new_avg_rate = (item['avg_rating']*len(item['rating']) + star)/(len(item['rating'])+1)
             db.items.update_one({"_id":ObjectId(item_id)},{'$set':{"avg_rating":new_avg_rate},'$push':{"rating":rate}})
-            if 'avg_rating' not in user:
-                db.users.update_one({"username":username},{'$set':{"avg_rating":0.0}})
-                user['avg_rating'] = 0.0
 
             # update user's ratings
             new_avg_rate_user = (user['avg_rating']*len(user['ratings']) + star)/(len(user['ratings']) + 1)
