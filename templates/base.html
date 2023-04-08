@@ -11,6 +11,9 @@
 
 </head>
 
+<script>
+</script>
+
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="#">E-Commerce App</a>
@@ -22,18 +25,39 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="/">Home</a>
                 </li>
+                {% if session['user'] %}
                 <li class="nav-item">
-                    <a class="nav-link" href="/login">Login</a>
+                    <a class="nav-link" href="/user/{{session['user']['_id']}}">Profile</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Profile</a>
-                </li>
+                {% endif %} {% if session['user'] and session['user']['role'] == 'admin' %}
                 <li class="nav-item">
                     <a class="nav-link" href="/add_item">Add Item</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/add_user">Add User</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/remove_item">Remove Item</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/remove_user">Remove User</a>
+                </li>
+                {% endif %}
+            </ul>
+            <ul class="navbar-nav ms-auto">
+                {% if session['user'] %}
+                <li class="nav-item">
+                    <a class="nav-link" href="/login" style="border-right: solid 1px ">{{session['user']['username']}}</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/logout">Logout</a>
+                </li>
+                {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" href="/login">Login</a>
+                </li>
+                {% endif %}
+
             </ul>
         </div>
     </nav>

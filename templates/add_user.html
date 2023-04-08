@@ -1,4 +1,18 @@
 {% extends "base.html" %} {% block content %}
+
+<script>
+    // the selector will match all input controls of type :checkbox
+    // and attach a click event handler 
+    function is_admin(value) {
+        if (value == "true") {
+            document.getElementById("password_input").style.display = "block";
+            document.getElementById("password").setAttribute("required", "true");
+        } else {
+            document.getElementById("password_input").style.display = "none";
+        }
+    }
+</script>
+
 <div class="container mt-5 mb-5">
     <form method="post" class="form-horizontal">
         <fieldset>
@@ -13,21 +27,25 @@
                 </div>
             </div>
 
-
-
-
             <!-- Select Basic -->
             <div class="form-group">
                 <label class="col-md-4 control-label" for="admin">Is admin?</label>
                 <div class="col-md-4">
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="admin_yes" name="admin_yes" value="true">
+                        <input class="form-check-input" type="checkbox" id="admin" name="admin" value="true" oninput="is_admin(this.value)">
                         <label class="form-check-label" for="inlineCheckbox1">Yes</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="admin_no" name="admin_no" value="false">
+                        <input class="form-check-input" type="checkbox" id="admin" name="admin" value="false" onchange="is_admin(this.value)">
                         <label class="form-check-label" for="inlineCheckbox2">No</label>
                     </div>
+                </div>
+            </div>
+
+            <div class="form-group" style="display: none;" id="password_input">
+                <label class="col-md-4 control-label" for="password">Password</label>
+                <div class="col-md-4">
+                    <input type="password" id="password" name="password" placeholder="Password" class="form-control input-md" type="text">
                 </div>
             </div>
 
