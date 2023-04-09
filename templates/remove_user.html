@@ -1,20 +1,16 @@
 {% extends "base.html" %} {% block content %}
 <script type="text/javascript">
-    function formatRate(value) {
-        document.write(value.toFixed(1));
-    }
-
-    function len(value) {
-        document.write(value.length);
-    }
 </script>
-
+<div class="d-flex justify-content-center">
+    <h2><span class="badge bg-light text-dark">Select user(s) to be removed</span></h2>
+</div>
 <div class="content">
+
     <form method="post">
-        <div class="container d-flex justify-content-center mt-50 mb-50">
+        <div class="container d-flex justify-content-center mt-50 mb-50 card-group">
             <div class="row">
                 {% for user in users %}
-                <div class="col-md-4 mt-2">
+                <div class="col-auto mt-2 mb-2 mr-2 ml-2">
                     <div class="card">
 
                         <!--<div class="card-body">
@@ -37,16 +33,6 @@
 
                             </div>
 
-
-
-
-                            <span class="badge text-bg-secondary">
-                            <i style="color:gold;" class="fa fa-star"></i>
-                            <script type="text/javascript">
-                                formatRate({{user.avg_rating}});
-                            </script>
-                            </span>
-
                             <input class="form-check-input" type="checkbox" value="{{user['_id']}}" id="to_remove" name="to_remove">
 
                             <!-- <button type="button" class="btn bg-cart"><i class="fa fa-cart-plus mr-2"></i> Add to cart</button> -->
@@ -60,7 +46,9 @@
 
             </div>
         </div>
-        <button type="submit" class="btn btn-danger">Remove</button>
+        <div class="d-flex justify-content-center">
+            <button type="submit" class="btn btn-danger">Remove</button>
+        </div>
     </form>
 
 

@@ -1,7 +1,5 @@
 {% extends "base.html" %} {% block content %}
 
-
-
 <div class="container d-flex justify-content-center mt-50 mb-50">
 
     <form method="post">
@@ -13,14 +11,13 @@
 
         <!-- Password input -->
         <div class="form-outline mb-4">
-            <input type="password" id="form2Example2" class="form-control" />
-            <label class="form-label" for="form2Example2">Password</label>
+            <input name="password" type="password" id="form2Example2" class="form-control" />
+            <label name="password" class="form-label" for="password">Password</label>
         </div>
 
 
         <!-- Submit button -->
         <button type="submit" class="btn btn-primary btn-block mb-4">Sign in</button>
-
     </form>
 </div>
 

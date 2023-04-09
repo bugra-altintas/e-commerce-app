@@ -7,7 +7,7 @@
 
 <div class="content">
     <div class="row">
-        <div class="col-md-4 mt-2">
+        <div class="col-md-4 mt-2 mb-2">
             <form action="category">
                 <label for="category">Categories:</label>
                 <select id="category" name="category">
@@ -45,7 +45,7 @@
 
                         <h3 class="mb-0 font-weight-semibold">${{item['price']}}</h3>
 
-                        <div class="text-muted mb-3">{{item['num_of_reviewers']}} reviews</div>
+                        <div class="text-muted mb-3">{{item['reviews']|length}} reviews</div>
 
                         <span class="badge text-bg-secondary">
                             <i style="color:gold;" class="fa fa-star"></i>

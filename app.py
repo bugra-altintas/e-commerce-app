@@ -26,8 +26,8 @@ def clear_all_ratings():
 def clear_all_reviews():
     # update all users' reviews field to empty list
     users.update_many({},{'$set':{"reviews":[]}})
-    # update all items' reviews field to empty list and num_of_reviewers field to 0
-    db.items.update_many({},{'$set':{"reviews":[],"num_of_reviewers":0}})
+    # update all items' reviews field to empty list
+    db.items.update_many({},{'$set':{"reviews":[]}})
 
 def clear_all_users():
     # delete all users except admin
@@ -50,6 +50,11 @@ def login():
         username = request.form['username'] 
         record = users.find_one({'username': username})
         if record:
+            #admin authentication
+            if record['is_admin']:
+                if record['password'] != request.form['password']:
+                    return render_template('login.html')
+
             user = {
                 "username":record['username'],
                 "role":'admin' if record['is_admin'] else 'user',
@@ -58,7 +63,7 @@ def login():
             session['user'] = user
             return redirect(url_for('index'))
         else:
-            render_template('login.html', error="true")
+            redirect(url_for('login'))
     return render_template('login.html')
 
 #endpoint for logout
@@ -102,7 +107,7 @@ def item(item_id):
                 return redirect(url_for('item',item_id=item_id))
             # else add review
             else:
-                db.items.update_one({"_id":ObjectId(item_id)},{'$push':{"reviews":review},'$inc':{"num_of_reviewers":1}})            
+                db.items.update_one({"_id":ObjectId(item_id)},{'$push':{"reviews":review}})            
                 return redirect(url_for('item',item_id=item_id))
 
             
@@ -170,7 +175,6 @@ def add_item():
                 "ratings":[],
                 "avg_rating":0.0,
                 "reviews":[],
-                "num_of_reviewers":0,
             }
         # if category is monitor, add spec
         elif category == "Monitor" or category == "Computer Components":
@@ -185,7 +189,6 @@ def add_item():
                 "ratings":[],
                 "avg_rating":0.0,
                 "reviews":[],
-                "num_of_reviewers":0,
             }
         else:
             item = {
@@ -198,7 +201,6 @@ def add_item():
                 "ratings":[],
                 "avg_rating":0.0,
                 "reviews":[],
-                "num_of_reviewers":0,
             }
         
         db.items.insert_one(item)
@@ -218,7 +220,9 @@ def add_user():
         print("you are not admin")
         return redirect(url_for('index'))
     if request.method == 'POST':
-        print(request.form)
+        if db.users.find_one({"username":request.form['username']}):
+            print("username already exists")
+            return redirect(url_for('add_user'))
         admin = True if request.form['admin'] == 'true' else False
         user = {
             "username":request.form['username'],
@@ -282,7 +286,7 @@ def remove_user():
             for item in items:
                 for review in item['reviews']:
                     if review['reviewer'] == user['username']:
-                        db.items.update_one({"_id":ObjectId(item['_id'])},{'$pull':{"reviews":{"reviewer":user['username']}},'$inc':{"num_of_reviewers":-1}})
+                        db.items.update_one({"_id":ObjectId(item['_id'])},{'$pull':{"reviews":{"reviewer":user['username']}}})
                 for rating in item['ratings']:
                     if rating['rater'] == user['username']:
                         #recalculate avg rating

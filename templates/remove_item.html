@@ -6,7 +6,7 @@
 </script>
 
 <div class="content">
-    <div class="row">
+    <div class="d-flex row">
         <div class="col-md-4 mt-2">
             <form action="category">
                 <label for="category">Categories:</label>
@@ -20,6 +20,9 @@
                     </select>
                 <button type="submit">Filter</button>
             </form>
+        </div>
+        <div class="col-md-4 mt-2 justify-content-center">
+            <h2><span class="badge bg-light text-dark">Select item(s) to be removed</span></h2>
         </div>
     </div>
     <hr>
@@ -46,7 +49,7 @@
 
                             <h3 class="mb-0 font-weight-semibold">${{item['price']}}</h3>
 
-                            <div class="text-muted mb-3">{{item['num_of_reviewers']}} reviews</div>
+                            <div class="text-muted mb-3">{{item['reviews']|length}} reviews</div>
 
                             <span class="badge text-bg-secondary">
                             <i style="color:gold;" class="fa fa-star"></i>
@@ -69,7 +72,9 @@
 
             </div>
         </div>
-        <button type="submit" class="btn btn-danger">Remove</button>
+        <div class="d-flex justify-content-center">
+            <button type="submit" class="btn btn-danger">Remove</button>
+        </div>
     </form>
 
 
