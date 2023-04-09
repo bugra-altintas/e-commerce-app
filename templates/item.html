@@ -201,7 +201,7 @@
             <div class="row g-0">
                 <div class="col-md-6 border-end">
                     <div class="d-flex flex-column justify-content-center">
-                        <div class="main_image"> <img src="{{item['image']}}" id="main_product_image" width="350"> </div>
+                        <div class="main_image"> <img src={{item[ 'image']}} id="main_product_image" width="350"> </div>
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -213,8 +213,14 @@
                             <p>{{item['description']}}</p>
                         </div>
                         <h3>${{item['price']}}</h3>
-
-
+                        <h6 class="text-muted">Seller: {{item.seller}}</h6>
+                        <h6 class="text-muted">Category: {{item.category}}</h6>
+                        {% if item['category'] == "Monitor" or item['category'] == "Computer Components" %}
+                        <h6 class="text-muted">Spec: {{item.spec}}</h6>
+                        {% elif item['category'] == "Clothing" %}
+                        <h6 class="text-muted">Size: {{item.size}}</h6>
+                        <h6 class="text-muted">Color: {{item.color}}</h6>
+                        {% endif %}
                         <div class="ratings d-flex flex-row align-items-center">
                             <div class="d-flex flex-row">
                                 <span class="badge text-bg-secondary">
