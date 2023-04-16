@@ -159,6 +159,7 @@ def add_item():
         return redirect(url_for('index'))
 
     if request.method == 'POST':
+        print(request.form)
         category = request.form['item_category']
         item = None
         # if category is clothing, add size

@@ -8,16 +8,11 @@
             document.getElementById("cloth").style.display = "none";
         }
 
-        if (category == "Computer Components") {
+        if (category == "Computer Components" || category == "Monitor") {
             document.getElementById("comp").style.display = "block";
+
         } else {
             document.getElementById("comp").style.display = "none";
-        }
-
-        if (category == "Monitor") {
-            document.getElementById("mon").style.display = "block";
-        } else {
-            document.getElementById("mon").style.display = "none";
         }
     }
 </script>
@@ -86,8 +81,8 @@
             </div>
 
             <div class="form-group" id="cloth" style="display: none;">
-                <label class="col-md-2 control-label" for="item_size">Item Size</label>
-                <div class="col-md-2">
+                <label class="col-md-4 control-label" for="item_size">Item Size</label>
+                <div class="col-md-4">
                     <select id="item_size" name="item_size" class="form-control">
                         <option value="S">S</option>
                         <option value="M">M</option>
@@ -96,53 +91,30 @@
                     </select>
                 </div>
 
-                <label class="col-md-2 control-label" for="item_color">Item Color</label>
-                <div class="col-md-2">
-                    <select id="item_color" name="item_color" class="form-control">
-                        <option value="blue">Blue</option>
-                        <option value="red">Red</option>
-                        <option value="green">Green</option>
-                        <option value="cyan">Cyan</option>
-                    </select>
+                <label class="col-md-4 control-label" for="item_color">Item Color</label>
+                <div class="col-md-4">
+
+                    <input id="item_color" name="item_color" placeholder="Color" class="form-control input-md" type="text">
+
                 </div>
             </div>
 
             <div class="form-group" id="comp" style="display: none;">
-                <label class="col-md-2 control-label" for="item_spec">Item Specification</label>
-                <div class="col-md-2">
-                    <select id="item_spec" name="item_spec" class="form-control">
-                        <option value="4 GB">4 GB</option>
-                        <option value="8 GB">8 GB</option>
-                        <option value="16 GB">16 GB</option>
-                        <option value="32 GB">32 GB</option>
-                    </select>
-                </div>
-            </div>
-
-            <div class="form-group" id="mon" style="display: none;">
-                <label class="col-md-2 control-label" for="item_spec">Item Specification</label>
-                <div class="col-md-2">
-                    <select id="item_spec" name="item_spec" class="form-control">
-                        <option value="21 inches">21 inches</option>
-                        <option value="24 inches">24 inches</option>
-                        <option value="27 inches">27 inches</option>
-                    </select>
-                </div>
-            </div>
-
-
-
-
-
-            <!-- Button -->
-            <div class="form-group">
-                <label class="col-md-4 control-label" for="singlebutton"></label>
+                <label class="col-md-4 control-label" for="item_spec">Item Specification</label>
                 <div class="col-md-4">
-                    <button type="submit" id="singlebutton" name="singlebutton" class="btn btn-primary">ADD</button>
+                    <input id="item_spec" name="item_spec" placeholder="Specification" class="form-control input-md" type="text">
                 </div>
             </div>
+            <!-- Button -->
+
 
         </fieldset>
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="singlebutton"></label>
+            <div class="col-md-4">
+                <button type="submit" id="singlebutton" name="singlebutton" class="btn btn-primary">ADD</button>
+            </div>
+        </div>
     </form>
 </div>
 {% endblock %}

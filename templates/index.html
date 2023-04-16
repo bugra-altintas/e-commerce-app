@@ -30,31 +30,31 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="card-img-actions">
-                            <img src={{item[ 'image']}} class="card-img img-fluid" width="96" height="350" alt="">
+                            <img src="{{item['image']}}" class="card-img img-fluid " width="96 " height="350 " alt=" ">
                         </div>
                     </div>
 
-                    <div class="card-body bg-light text-center">
-                        <div class="mb-2">
-                            <h6 class="font-weight-semibold mb-2">
-                                <a href="/item/{{item['_id']}}" class="text-default mb-2" data-abc="true">{{item['name']}}</a>
+                    <div class="card-body bg-light text-center ">
+                        <div class="mb-2 ">
+                            <h6 class="font-weight-semibold mb-2 ">
+                                <a href="/item/{{item[ '_id']}} " class="text-default mb-2 " data-abc="true ">{{item['name']}}</a>
                             </h6>
 
-                            <p href="#" class="text-muted" data-abc="true">{{item['description']}}</p>
+                            <p href="# " class="text-muted " data-abc="true ">{{item['description']}}</p>
                         </div>
 
-                        <h3 class="mb-0 font-weight-semibold">${{item['price']}}</h3>
+                        <h3 class="mb-0 font-weight-semibold ">${{item['price']}}</h3>
 
-                        <div class="text-muted mb-3">{{item['reviews']|length}} reviews</div>
+                        <div class="text-muted mb-3 ">{{item['reviews']|length}} reviews</div>
 
-                        <span class="badge text-bg-secondary">
-                            <i style="color:gold;" class="fa fa-star"></i>
-                            <script type="text/javascript">
+                        <span class="badge text-bg-secondary ">
+                            <i style="color:gold; " class="fa fa-star "></i>
+                            <script type="text/javascript ">
                                 formatRate({{item.avg_rating}});
                             </script>
                         </span>
 
-                        <!-- <button type="button" class="btn bg-cart"><i class="fa fa-cart-plus mr-2"></i> Add to cart</button> -->
+                        <!-- <button type="button " class="btn bg-cart "><i class="fa fa-cart-plus mr-2 "></i> Add to cart</button> -->
 
 
                     </div>
