@@ -1,7 +1,6 @@
 from flask import Flask, render_template, request, url_for, redirect, flash, session
 from pymongo import MongoClient
 from bson.objectid import ObjectId
-import json
 
 
 app = Flask(__name__)

@@ -246,12 +246,17 @@
 
 
                         <hr>
-                        <h3>Reviews </h3>
-                        {% for review in item['reviews'] %}
+                        <form method="post">
+                            <label class="form-label" for="review">Leave a comment</label>
+                            <textarea name="review" class="form-control" id="review" rows="4"></textarea>
+                            <div class="form-group">
+                                <label class="col-md-12 control-label" for="singlebutton"></label>
+                                <div class="col-md-12">
+                                    <button type="submit" id="singlebutton" name="singlebutton" class="btn btn-primary">Submit</button>
+                                </div>
+                            </div>
+                        </form>
 
-                        <h4>{{review['reviewer']}}</h4>
-                        <p>{{review['review']}}</p>
-                        <hr> {% endfor %}
 
                     </div>
 
@@ -263,16 +268,12 @@
 
 
         <div class="form-outline col-md-12 justify-content-center">
-            <form method="post">
-                <label class="form-label" for="review">Leave a comment</label>
-                <textarea name="review" class="form-control" id="review" rows="4"></textarea>
-                <div class="form-group">
-                    <label class="col-md-12 control-label" for="singlebutton"></label>
-                    <div class="col-md-12">
-                        <button type="submit" id="singlebutton" name="singlebutton" class="btn btn-primary">Submit</button>
-                    </div>
-                </div>
-            </form>
+            <h3>Reviews </h3>
+            {% for review in item['reviews'] %}
+
+            <h4>{{review['reviewer']}}</h4>
+            <p>{{review['review']}}</p>
+            <hr> {% endfor %}
         </div>
 
     </div>
