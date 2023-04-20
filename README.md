@@ -1,18 +1,18 @@
-# E-Commerce Application
+# E-Commerce Application
 
 URL: https://e-commerce-app-l7zh.onrender.com/
 
 ## Programming language and framework
 When I did some research in Render's docs, I saw the quickstart options and the most familiar language in these options was Python for me. So, I continued with it. There are 3 frameworkds with Python that Render supports. When I inspected them one by one, the most basic one was Flask. Also, I did some research on Internet and figured out that working with MongoDB from Flask is way simpler than other frameworks. Since I am not very familiar with web applications, I decided to continue with most basic one.
 
-## Design Decisions
+## Design Decisions
 For database connection and operations, I used MongoDB library for python, **pymongo**. At the beginning of application, I created a Mongo client with my credentials and I fetch my database, **flask_db** as db. Then, I did all database operations by using this **db** object. 
 
 In my database, I have two collections, **users** and **items**. In users collection, each user has username, password and is_admin fields. is_admin is a boolean value which indicates whether user is an admin or not. In items collection, all items has name, description, category, price, seller, image, ratings, avg_rating and reviews fields. There are additional fields for **Clothing** as size and color, for **Monitor** and **Computer Components** as specification. In ratings and reviews fields, ratings and reviews are stored with the current user's username.
 
 There are endpoints and pages for each operation. Page templates are in templates folder. There is a base.html file which is derived by every page. This base page has navigation bar in the web application. By deriving this page in all pages, I avoided from making changes in every page when I add something to navigation bar. In index page, index.html, all items are listed with their descriptions and average ratings. For item page, item.html, there is a template and it is filled by the web application by fetching information about item from database with item's id. There are adding and removing item and user pages. They are only visible to admins. For adding pages, there are forms to submit. When they submitted, post request is parsed by related endpoint and recorded into the corresponding collection, items or users. In user page, user.html, there is a template and its filled by the web application by fetching information about user from database with user id.
 
-## How to login
+## How to login
 At the top right of each page, there is a login button which redirects to login page. A regular user does not need a password. Only username is enough to log a user in. For admins, they need to authorize with their passwords. The login button turns out to logout button when any user is logged in. It clears the currently logged in user. Users in the application is listed below:
 * Username: bugra (Admin)
   Password: bugra123
